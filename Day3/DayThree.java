@@ -56,7 +56,6 @@ public class DayThree {
             // Scanner sc = new Scanner(new File("Day3/sample.txt"));
             Scanner sc = new Scanner(new File("Day3/input.txt"));
 
-            StringBuilder sb = new StringBuilder();
             List<String> list = new ArrayList();
             int count = 0;
 
