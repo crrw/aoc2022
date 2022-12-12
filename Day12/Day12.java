@@ -53,9 +53,11 @@ class Main{
 
     static void bfs(int[][] arr, Pair start, Pair end) {
         int[][] moves = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        System.out.println(end);
+        System.out.println(arr[end.first][end.second] == 'E');
+        System.out.println(arr[start.first][start.second] == 'S');
 
         arr[start.first][start.second] = 'a' - 1;
-        arr[end.first][end.second] = -1;
 
         Set<Pair> vis = new HashSet<>();
 
@@ -73,6 +75,7 @@ class Main{
                 int y = curr.second;
 
                 if(arr[x][y] == -1) {
+                    System.out.println("!!!!!" + x + "," + y);
                     System.out.println(cnt + 1);
                     return;
                 }
@@ -82,7 +85,7 @@ class Main{
                     int ny = y + move[1];
 
                     Pair p = new Pair(nx, ny);
-                    if(good(arr, nx, ny) && !vis.contains(p) && (arr[nx][ny] == arr[x][y] || arr[nx][ny] + 1 == arr[x][y] || arr[nx][ny] - 1 == arr[x][y])) {
+                    if(good(arr, nx, ny) && !vis.contains(p) && (arr[nx][ny] == arr[x][y] || arr[nx][ny] + 1 == arr[x][y] || arr[nx][ny] - 1 == arr[x][y] || arr[nx][ny] == 'E')) {
                         queue.add(p);
                         vis.add(p);
                     }
